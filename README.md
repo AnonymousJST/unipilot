@@ -2,7 +2,7 @@
 
 **The AI Student Assistant.**
 
-Built with **Expo SDK 54**, **Supabase**, and **Gemini 2.0 Flash**.
+Built with **Expo SDK 54**, **Supabase**, and **Gemini 3.0 Flash**.
 
 ## 🚀 Features
 
@@ -14,7 +14,7 @@ Built with **Expo SDK 54**, **Supabase**, and **Gemini 2.0 Flash**.
 
 - **Framework**: React Native (Expo Router)
 - **Backend**: Supabase (PostgreSQL + Auth)
-- **AI**: Google Gemini Vision (generative-ai)
+- **AI**: Google Gemini Vision (gemini-3-flash-preview)
 - **Styling**: NativeWind v4
 - **Animations**: Moti + Reanimated
 

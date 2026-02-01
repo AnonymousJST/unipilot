@@ -22,7 +22,7 @@ Stores parsed class events.
 - `user_id` (uuid, references profiles.id)
 - `subject` (text)
 - `day` (text) - e.g., "Monday"
-- `start_time` (text) - Format "HH:MM"
+- `start_time` (text) - Format "HH:MM" (stored as text for MVP simplicity)
 - `end_time` (text) - Format "HH:MM"
 - `location` (text, nullable)
 - `created_at` (timestamptz, default: `now()`)

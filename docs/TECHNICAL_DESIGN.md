@@ -8,13 +8,13 @@ The "Guardian of Stability" architecture. We prioritize robustness over speed. E
 
 ### Recommended Approach: Expo + Supabase + Gemini
 
-| Layer             | Choice                 | Rationale                                                                                |
-| ----------------- | ---------------------- | ---------------------------------------------------------------------------------------- |
-| **Frontend**      | Expo SDK 54 (SDK 54)   | Stable base, excellent developer experience via Expo Go, and built-in mobile primitives. |
-| **Styling**       | NativeWind (Tailwind)  | Industry standard for mobile styling; keeps components predictable and clean.            |
-| **Backend**       | Supabase               | Postgres database, Auth, and Edge Functions (for secure AI calls).                       |
-| **AI Reasoning**  | Gemini 2.0 Pro / Flash | Large context (1M tokens) for syllabus parsing and cost-effective Flash for daily notes. |
-| **Transcription** | Whisper-base           | High-accuracy audio transcription for lecture recording.                                 |
+| Layer             | Choice                | Rationale                                                                                         |
+| ----------------- | --------------------- | ------------------------------------------------------------------------------------------------- |
+| **Frontend**      | Expo SDK 54 (SDK 54)  | Stable base, excellent developer experience via Expo Go, and built-in mobile primitives.          |
+| **Styling**       | NativeWind (Tailwind) | Industry standard for mobile styling; keeps components predictable and clean.                     |
+| **Backend**       | Supabase              | Postgres database, Auth, and Edge Functions (for secure AI calls).                                |
+| **AI Reasoning**  | Gemini 3.0 Flash      | Faster and smarter than 2.0. We use `gemini-3-flash-preview` for both syllabus parsing and notes. |
+| **Transcription** | Whisper-base          | High-accuracy audio transcription for lecture recording.                                          |
 
 ### Stability Constraints (The Constitution)
 
@@ -32,7 +32,7 @@ The "Guardian of Stability" architecture. We prioritize robustness over speed. E
 **Complexity:** Medium (Reasoning heavy)
 
 - **Input:** Image or PDF file of a university syllabus.
-- **Engine:** Gemini 2.0 Pro via Supabase Edge Function.
+- **Engine:** Gemini 3.0 Flash via Client-Direct (MVP) or Edge Function.
 - **Logic:**
   1. User uploads file to Supabase Storage.
   2. Edge Function triggers Gemini with a strict JSON-output prompt.
@@ -46,7 +46,7 @@ The "Guardian of Stability" architecture. We prioritize robustness over speed. E
 - **Input:** Live audio stream/recording via `expo-av`.
 - **Engine:** Whisper (via Groq or internal Edge Function).
 - **Organization:**
-  - Summary and organization handled by Gemini 2.0 Flash.
+  - Summary and organization handled by Gemini 3.0 Flash.
   - Notes saved as Markdown in `lecture_notes` table.
 
 ---
